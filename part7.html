@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <style>
+       canvas
+            {
+                border:1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas1" width="800" height="450">
+
+        </canvas>
+
+    </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script>
+
+$(document).ready(function() {
+
+                 draw();
+
+        });
+
+        function draw(){
+            var c = document.getElementById("canvas1");
+            var ctx = c.getContext("2d");
+ 
+//text
+  ctx.fillStyle = "blue";
+  ctx.font = "bold 30px Arial";
+  ctx.fillText("Turn that frown", 290, 35);
+
+  ctx.fillStyle = "blue";
+  ctx.font = "bold 30px Arial";
+  ctx.fillText("Upside down", 310, 400);
+
+
+//face
+var radius=50;
+ctx.beginPath();
+ctx.arc(400,200,radius * 3,0,Math.PI*2,true);
+//ctx.fillStyle="#8ED6AA"
+//ctx.fill();
+ctx.fillStyle="FFFF00"
+ctx.fill();
+
+
+//eyes
+ctx.beginPath();
+ctx.arc(350,150,radius - 30,0,Math.PI*2,true);
+//ctx.fillStyle="#8ED6AA"
+//ctx.fill();
+ctx.fillStyle="000000"
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(450,150,radius - 30,0,Math.PI*2,true);
+//ctx.fillStyle="#8ED6AA"
+//ctx.fill();
+ctx.fillStyle="000000"
+ctx.fill();
+
+
+//nose
+ctx.beginPath();
+ctx.arc(400,200,radius - 40,Math.PI / 2,true);
+//ctx.fillStyle="#8ED6AA"
+//ctx.fill();
+ctx.fillStyle="000000"
+ctx.fill();
+
+//mouth
+ctx.beginPath();
+ctx.arc(400,300,radius + 10,0,Math.PI,true);
+//ctx.fillStyle="#8ED6AA"
+//ctx.fill();
+ctx.fillStyle="000000"
+ctx.fill();
+
+
+
+
+
+
+
+}
+
+
+
+    </script>
+</html>

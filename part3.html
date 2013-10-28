@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <style>
+       canvas
+            {
+                border:1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas1" width="750" height="350">
+
+        </canvas>
+
+    </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script>
+
+        var i = 0;
+            var x= -20;
+            var radius=50;
+            var y = 75
+            flip = true;
+        $(document).ready(function() {
+           
+            
+            setInterval(function(){
+            if (i < 120){
+                 draw(i);
+                 i++;
+                 if (i == 119){
+                    i = 0;
+                    x = -20;
+                    y = 75;
+                 }
+            }
+
+            }, 20);
+               
+
+
+        });
+
+
+
+        function draw(){
+            var c = document.getElementById("canvas1");
+            var ctx = c.getContext("2d");
+
+            
+                if ( i >= 0 || i <= 25){
+                    flip = true;
+                } 
+                if (i >= 25){
+                    flip = false;
+                }
+                if (i >= 55){  
+                flip = true;
+                }
+            
+
+            if (flip == true){
+                y  = y + 10;
+            } 
+            if (flip == false) {
+                y = y - 10;
+            }
+
+             
+            x = x + 10;
+
+
+            // Create gradients
+            var radgrad = ctx.createRadialGradient(x,y,radius,0,Math.PI*2,true);
+            radgrad.addColorStop(0, '#A7A30C');
+            radgrad.addColorStop(0.9, '#019F62');
+            radgrad.addColorStop(1, 'rgba(1,159,98,0)');
+            
+
+            ctx.clearRect(0,0,750,350);
+            ctx.beginPath();
+            ctx.arc(x,y,radius,0,Math.PI*2,true);
+            ctx.fillStyle=radgrad;
+            ctx.fill();
+           // ctx.lineWidth=5;
+           // ctx.stroke();
+
+
+}
+    </script>
+</html>

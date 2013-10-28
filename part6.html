@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <style>
+       canvas
+            {
+                border:1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas1" width="800" height="450">
+
+        </canvas>
+
+    </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script>
+
+var i = 0;
+$(document).ready(function() {
+           
+        
+        setInterval(function(){
+            if (i < 350){
+                 draw(i);
+                 i++;
+                 if (i == 349){
+                    i = 0;
+                 }
+            }
+
+            }, 10);
+               
+
+        });
+
+        function draw(){
+            var c = document.getElementById("canvas1");
+            var ctx = c.getContext("2d");
+ var startX = 200;
+ var startY = 100;
+ 
+      // create radial gradient
+
+var grd = ctx.createRadialGradient(238, 50, 10, 238, 50, 300);
+// light blue
+grd.addColorStop(0, '#8ED6FF');
+// dark blue
+grd.addColorStop(1, '#004CB3');
+
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+        ctx.drawImage(imageObj, 69 + (i * 2), 350, 180, 100);
+      };
+      imageObj.src = 'bluecar.png';
+
+
+//Sky
+ctx.beginPath();
+//ctx.arc(x,y,radius + y,0,Math.PI*2,true);
+ctx.rect(0,0,800 ,450);
+ctx.fillStyle="#87CEFA"
+ctx.fill();
+
+//Grass
+ctx.beginPath();
+//ctx.arc(x,y,radius + y,0,Math.PI*2,true);
+ctx.rect(0,350,800 ,100);
+ctx.fillStyle="00C618"
+ctx.fill();
+
+
+//Trees
+ctx.beginPath();
+//ctx.arc(x,y,radius + y,0,Math.PI*2,true);
+ctx.rect(600,300,20 ,80);
+ctx.fillStyle="A65C00"
+ctx.fill();
+
+//Tree tops
+var radius=50;
+ctx.beginPath();
+ctx.arc(610,280,radius,0,Math.PI*2,true);
+//ctx.fillStyle="#8ED6AA"
+//ctx.fill();
+ctx.fillStyle="00C618"
+ctx.fill();
+
+
+//Trees
+ctx.beginPath();
+//ctx.arc(x,y,radius + y,0,Math.PI*2,true);
+ctx.rect(500,300,20 ,80);
+ctx.fillStyle="A65C00"
+ctx.fill();
+
+//Tree tops
+var radius=50;
+ctx.beginPath();
+ctx.arc(510,280,radius,0,Math.PI*2,true);
+//ctx.fillStyle="#8ED6AA"
+//ctx.fill();
+ctx.fillStyle="00C618"
+ctx.fill();
+
+//Trees
+ctx.beginPath();
+//ctx.arc(x,y,radius + y,0,Math.PI*2,true);
+ctx.rect(400,300,20 ,80);
+ctx.fillStyle="A65C00"
+ctx.fill();
+
+//Tree tops
+var radius=50;
+ctx.beginPath();
+ctx.arc(410,280,radius,0,Math.PI*2,true);
+//ctx.fillStyle="#8ED6AA"
+//ctx.fill();
+ctx.fillStyle="00C618"
+ctx.fill();
+
+//SUN
+var radius=50;
+ctx.beginPath();
+ctx.arc(750,100,radius * 2,0,Math.PI*2,true);
+//ctx.fillStyle="#8ED6AA"
+//ctx.fill();
+ctx.fillStyle="FFFF00"
+ctx.fill();
+
+//Birds
+
+ctx.beginPath();
+ctx.arc(100,100,radius/2,0,Math.PI+.9,true);
+ctx.lineWidth = 5;
+ctx.stroke();
+ctx.beginPath();
+ctx.arc(138,120,radius/2,0,Math.PI +1,true);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(100,70,radius/2,0,Math.PI+.9,true);
+ctx.lineWidth = 5;
+ctx.stroke();
+ctx.beginPath();
+ctx.arc(138,90,radius/2,0,Math.PI +1,true);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(40,100,radius/2,0,Math.PI+.9,true);
+ctx.lineWidth = 5;
+ctx.stroke();
+ctx.beginPath();
+ctx.arc(78,120,radius/2,0,Math.PI +1,true);
+ctx.lineWidth = 5;
+ctx.stroke();
+
+
+ // clouds
+ctx.beginPath();
+ctx.moveTo(startX, startY);
+ctx.bezierCurveTo(startX - 40, startY + 20, startX - 40, 
+startY + 70, startX + 60, startY + 70);
+ctx.bezierCurveTo(startX + 80, startY + 100, startX + 150, 
+startY + 100, startX + 170, startY + 70);
+ctx.bezierCurveTo(startX + 250, startY + 70, startX + 250, 
+startY + 40, startX + 220, startY + 20);
+ctx.bezierCurveTo(startX + 260, startY - 40, startX + 200, 
+startY - 50, startX + 170, startY - 30);
+ctx.bezierCurveTo(startX + 150, startY - 75, startX + 80, 
+startY - 60, startX + 80, startY - 30);
+ctx.bezierCurveTo(startX + 30, startY - 75, startX - 20, 
+startY - 60, startX, startY);
+ctx.fillStyle = grd;
+ctx.fill();
+
+
+}
+
+
+
+    </script>
+</html>
